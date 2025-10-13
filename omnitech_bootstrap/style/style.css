@@ -25,7 +25,8 @@ footer {
 }
 
 #logo {
-    width: 15%;
+    width: 23%;
+    padding-left: 7.5%;
 }
 
 .theme-icon {
@@ -34,7 +35,7 @@ footer {
 }
 
 .nav-item {
-    padding: 0% !important;
+    margin-left: 0% !important;
     display: flex;
     align-items: center;
 }
@@ -60,4 +61,20 @@ form {
     display: flex;
     flex-direction: column;
     width: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+    body { padding-top: 30%; }
+    #logo {
+        padding-left: 0;
+    }
+    #logoArea {
+        display: flex;
+        justify-content: center;
+    }
+    .nav-brand {
+        display: flex;
+        padding-left: auto !important;
+        padding-right: auto !important;
+    }
 }
