@@ -12,11 +12,11 @@
 <body>
     <header>
         <!-- 
-    dark theme
-    navbar
-    offcanvas
+    dark theme - check
+    navbar - check
+    offcanvas 
     forms
-    toast
+    alert
   -->
 
         <nav class="navbar navbar-expand-md bg-light w-100 fixed-top">
@@ -47,30 +47,68 @@
             </div>
         </nav>
     </header>
+
     <main>
-        <section class="bloco mt-5">
+        <section class="bloco">
             <article>
-                <div class="container bg-primary w-100 min-h-50 p-3">
-                    <h2>Sobre a OmniTech</h2>
+                <div class="bg-primary p-3">
+                    <h2 style="margin-top: 4.75%;">Sobre a OmniTech</h2>
                 </div>
                 <p class="m-3">
-                Fundada em 2025, a OmniTech nasceu com a missão de revolucionar o acesso à tecnologia no Brasil,
-                posicionando-se como uma força pioneira no setor de comercialização de componentes de hardware. Hoje, somos
-                reconhecidos como um dos líderes dos e-commerces de tecnologia em toda a América Latina.
+                    Fundada em 2025, a OmniTech nasceu com a missão de revolucionar o acesso à tecnologia no Brasil,
+                    posicionando-se como uma força pioneira no setor de comercialização de componentes de hardware.
+                    Hoje, somos
+                    reconhecidos como um dos líderes dos e-commerces de tecnologia em toda a América Latina.
                 </p>
                 <p class="m-3">
-                Desde o início, nossa trajetória é marcada pela paixão de uma equipe focada em excelência, agilidade na implementação e
-                um profundo respeito por nossos clientes e parceiros.
+                    Desde o início, nossa trajetória é marcada pela paixão de uma equipe focada em excelência, agilidade
+                    na implementação e
+                    um profundo respeito por nossos clientes e parceiros.
                 </p>
                 <p class="m-3">
-                Com um portfólio completo e preços competitivos, a OmniTech está sempre na vanguarda, oferecendo as soluções mais
-                avançadas e os lançamentos mais importantes do cenário tecnológico global. Já impactamos milhares de empresas em todo o
-                território nacional, com projetos implementados em centenas de cidades.</p>
+                    Com um portfólio completo e preços competitivos, a OmniTech está sempre na vanguarda, oferecendo as
+                    soluções mais
+                    avançadas e os lançamentos mais importantes do cenário tecnológico global. Já impactamos milhares de
+                    empresas em todo o
+                    território nacional, com projetos implementados em centenas de cidades.</p>
             </article>
+        </section>
+        <section class="bloco">
+            <div class="container p-3">
+                <div class="row g-5 justify-content-center">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card" style="height: 100%" data-bs-toggle="tooltip" title="Melhores Avaliações">
+                            <img class="card-img-top mx-auto mt-4" src="./img/check.png" alt="Card image"
+                                style="width:50%">
+                            <div class="card-body d-flex flex-column text-center text-primary">
+                                <h3>Melhores Avaliações</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card" style="height: 100%" data-bs-toggle="tooltip" title="Entregas Ultra Rápidas">
+                            <img class="card-img-top mx-auto mt-5" src="./img/truck.png" alt="Card image"
+                                style="width:50%; margin-bottom: 11%;">
+                            <div class="card-body d-flex flex-column text-center text-primary">
+                                <h3>Entregas Ultra Rápidas</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card" style="height: 100%" data-bs-toggle="tooltip" title="+3 Milhões de Pedidos">
+                            <img class="card-img-top mx-auto mt-4" src="./img/box.png" alt="Card image"
+                                style="width:50%">
+                            <div class="card-body d-flex flex-column text-center text-primary">
+                                <h3 >+3 Milhões de Pedidos</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer class="bg-dark text-center fixed-bottom">
+    <footer class="bg-dark text-center">
         <a class="text-center" href="#">
             <img src="./img/logo.png" alt="Avatar Logo" class="m-2" style="width:30%" />
         </a>
@@ -109,6 +147,11 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips after Bootstrap JS is loaded
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(el => new bootstrap.Tooltip(el));
+    </script>
 </body>
 
 </html>

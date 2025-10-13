@@ -12,9 +12,11 @@
 <body>
     <header>
         <!-- 
-    dark theme
-    navbar
+    dark theme - check
+    navbar - check
     offcanvas
+    forms - check
+    alert - check
   -->
 
         <nav class="navbar navbar-expand-md bg-light w-100 fixed-top">
@@ -45,17 +47,19 @@
             </div>
         </nav>
     </header>
-    <main>
-        <section class="bloco mt-5">
-            <article>
-                <h2>Entre em Contato</h2>
-                <p>
-                    Envie suas dúvidas, sugestões ou solicitações através do formulário abaixo. Nossa equipe está pronta para
+    <main><section class="bloco">
+        <article>
+            <div class="bg-primary p-3 mb-3">
+                <h2 style="margin-top: 5%;">Entre em Contato</h2>
+            </div>
+                <b class="text-primary">
+                    Envie suas dúvidas, sugestões ou solicitações através do formulário abaixo. Nossa equipe está pronta
+                    para
                     atendê-lo!
-                </p>    
-            </article>
+                </b>
+        </article>
             <hr>
-            <form action="#" method="post" class="mb-3">
+            <form action="#" class="mb-3">
                 <div class="mb-3 mt-3">
                     <label for="email" class="form-label">Email:</label>
                     <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
@@ -68,21 +72,16 @@
                     <label for="description" class="form-label">Descrição:</label>
                     <textarea class="form-control" rows="3" id="description" name="description"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary" id="toastbtn">Submit</button>
+                <button type="submit" class="btn btn-primary" id="alertButton">Submit</button>
             </form>
+            
+            <div class="alert alert-success alert-dismissible fade">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Success!</strong> Form Submitted Successfully.
+            </div>
+
         </section>
     </main>
-
-    <div class="toast">
-    <div class="toast-header">
-      <strong class="me-auto">Toast Header</strong>
-      <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-    </div>
-    <div class="toast-body">
-      <p>Some text inside the toast body</p>
-    </div>
-  </div>
-</div>
 
     <footer class="bg-dark text-center">
         <a class="text-center" href="#">
@@ -97,12 +96,13 @@
         const htmlElement = document.documentElement;
         const navbar = document.querySelector(".navbar");
         const footer = document.querySelector("footer");
+        const alertButton = document.getElementById("alertButton");
 
         toggleThemeButton.addEventListener("click", function () {
             if (htmlElement.hasAttribute("data-bs-theme")) {
                 // Mudar para tema claro
                 darkButton.hasAttribute("hidden") &&
-                    darkButton.removeAttribute("hidden");
+                darkButton.removeAttribute("hidden");
                 lightButton.setAttribute("hidden", true);
                 htmlElement.removeAttribute("data-bs-theme");
                 navbar.classList.remove("bg-dark");
@@ -112,7 +112,7 @@
             } else {
                 // Mudar para tema escuro
                 lightButton.hasAttribute("hidden") &&
-                    lightButton.removeAttribute("hidden");
+                lightButton.removeAttribute("hidden");
                 darkButton.setAttribute("hidden", true);
                 htmlElement.setAttribute("data-bs-theme", "dark");
                 navbar.classList.remove("bg-light");
@@ -122,14 +122,17 @@
             }
         });
 
-            document.getElementById("toastbtn").onclick = function () {
-                var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-                var toastList = toastElList.map(function (toastEl) {
-                    return new bootstrap.Toast(toastEl)
-                })
-                toastList.forEach(toast => toast.show())
-            };
-        </script>
+        alertButton.onclick = function () {
+            var alertPlaceholder = document.querySelector('.alert');
+            var alert = new bootstrap.Alert(alertPlaceholder);
+            alertPlaceholder.classList.add('show');
+            alertButton.disabled = true;
+            setTimeout(function () {
+                alertPlaceholder.classList.remove('show');
+                alertButton.disabled = false;
+            }, 3000);
+        };
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
