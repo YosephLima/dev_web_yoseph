@@ -1,0 +1,19 @@
+scp => ssh + cp (copy)
+
+cp 'caminho_arquivo_a_ser_copiado' 'destino_copia'
+
+cp -r 'caminho_pasta_a_ser_copiada' 'destino_copia'
+
+# ssh sem chave .pem
+
+ssh 'username'@'ip'
+
+# ssh com chave .pem
+
+ssh -i 'caminho_chave_pem' 'user'@'ip'
+
+# a junção de ssh + cp forma o scp com os seguintes parametros
+
+scp -i 'caminho_chave_pem' 'arquivo_que_sera_copiado' ubuntu@ip:/home/ubuntu
+
+scp -i 'caminho_chave_pem' -r 'pasta_que_sera_copiada' ubuntu@ip:/home/ubuntu

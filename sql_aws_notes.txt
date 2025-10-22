@@ -1,0 +1,59 @@
+# instala o mysql
+sudo apt install mysql-server8.0
+
+# verifica se o serviço mysql está rodando
+sudo /etc/init.d/mysql status
+
+# inicia o serviço mysql
+sudo /etc/init.d/mysql start
+
+# acesso ao banco pelo usuário root
+mysql -u root -p
+
+# usar o banco mysql (banco padrão do sistema)
+use mysql
+
+# ver os usuários com seus acessos (host) que estão cadastrados no sistema
+select host, user from users
+
+# a coluna host é por qual rede o usuário pode acessar
+# localhost => 127.0.0.1
+# 'qualquer outro valor' => vai identificar como um IP/rede específico
+# % => pode acessar de qualquer IP/rede
+
+# criar usuário
+create user 'username'@'host' identified by 'password'
+
+# obs: substituir os valores yoseph, host e password por valores válidos no seu contexto
+
+# criar usuário que pode acessar o server de qualquer rede
+create user 'user'@'%' identified by 'fatec'
+
+# conceder permissões para o usuário
+grant all privileges on *.* to 'user'@'%'
+
+# atualizar as permissões 
+flush privileges
+
+# dentro de etc/mysql/mysql.conf.d temos mysql.cnf e mysqld.cnf
+# o que diferencia é o d, que é de DAEMON, que é a nomenclatura de 'serviço que roda em background'
+# ou seja, servidor. Então temos um cnf para o server (d) e outro para o cliente (sem o d)
+# teremos que alterar esse arquivo do servidor para permitir o acesso externo: outras redes, pois ele está
+# configurado para rodar apenas em 127.0.0.1 (localhost).
+
+# criar uma cópia de segurança do arquivo de servidor
+cat mysqld.cnf > mysql.backup
+
+# acessar o arquivo para editar
+nano mysql.cnf -d
+
+# altere os hosts para 0.0.0.0, usando as setas do teclado
+
+# salvar os alterações feitas no arquivo (nano)
+CTRL + O
+
+# sair da edição do arquivo (nano)
+CTRL + X
+
+# Após alterar os arquivos do servidor, vc precisar reiniciar o server para que ele atualize suas configurações
+sudo /etc/init.d/mysql restart
