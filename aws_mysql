@@ -7,7 +7,7 @@ sudo /etc/init.d/mysql status
 # inicia o serviço mysql
 sudo /etc/init.d/mysql start
 
-# acesso ao banco pelo usuário root
+# acesso ao banco pelo usuário root (como acabou de instalar, não há senha para o root)
 mysql -u root -p
 
 # usar o banco mysql (banco padrão do sistema)
@@ -24,7 +24,7 @@ select host, user from users
 # criar usuário
 create user 'username'@'host' identified by 'password'
 
-# obs: substituir os valores yoseph, host e password por valores válidos no seu contexto
+# obs: substituir os valores username, host e password por valores válidos no seu contexto
 
 # criar usuário que pode acessar o server de qualquer rede
 create user 'user'@'%' identified by 'fatec'
@@ -41,18 +41,18 @@ flush privileges
 # teremos que alterar esse arquivo do servidor para permitir o acesso externo: outras redes, pois ele está
 # configurado para rodar apenas em 127.0.0.1 (localhost).
 
-# criar uma cópia de segurança do arquivo de servidor
+# 1 - criar uma cópia de segurança do arquivo de servidor
 cat mysqld.cnf > mysql.backup
 
-# acessar o arquivo para editar
+# 2 - acessar o arquivo para editar (nesse caso uso o editor nano, pode usar vim se quiser)
 nano mysql.cnf -d
 
 # altere os hosts para 0.0.0.0, usando as setas do teclado
 
-# salvar os alterações feitas no arquivo (nano)
+# salvar as alterações feitas no arquivo (se tiver iniciado com nano)
 CTRL + O
 
-# sair da edição do arquivo (nano)
+# sair da edição do arquivo (se tiver iniciado com nano)
 CTRL + X
 
 # Após alterar os arquivos do servidor, vc precisar reiniciar o server para que ele atualize suas configurações

@@ -1,0 +1,9 @@
+# Se você não conseguiu acessar sua instância AWS via SSH pelo terminal (cmd, powershell, git bash, etc), você pode usar o BitVise (https://www.bitvise.com/ssh-client-download) para fazer isso.
+# Aí esse tutorial não terei, já que não precisei usar ele.
+# Além disso, ele pode criar conexões sFTP, o que permite a transferência de arquivos segura e simples (arrastando) entre PC e AWS (no caso de você não ter, por exemplo, a sua aplicação no repo do git).
+# Além disso ainda, pelo sFTP, é possível, na visão/pasta da própria instância, abrir um arquivo com 'Open with VsCode'. O vsCode tem suporta essa conexão FTP e, a partir disso, qualquer alteração que você fizer no arquivo aberto será enviada para o server pelo FTP.
+
+# Serviços da Instância (mysql como exemplo): 
+sudo /etc/init.d/mysql status # status do serviço mysql
+sudo /etc/init.d/mysql start  # inicia o serviço mysql
+sudo /etc/init.d/mysql stop   # para o serviço mysql

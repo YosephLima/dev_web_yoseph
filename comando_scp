@@ -1,4 +1,4 @@
-scp => ssh + cp (copy)
+# scp => ssh + cp (copy)
 
 cp 'caminho_arquivo_a_ser_copiado' 'destino_copia'
 

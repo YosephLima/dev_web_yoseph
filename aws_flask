@@ -1,0 +1,40 @@
+# Por se tratar de Linux, alguns comandos serão necessários usar sudo, que é o superusuário.
+
+# se não quiser rodar sudo em todo comando, pode entrar no modo root
+sudo su
+
+# sair do root
+exit
+
+# Para atualizar os repositório padrão da sua instância (do seu SO, no meu caso Ubuntu 24.04), deve rodar
+sudo apt update
+
+# Para pesquisar repositórios que já estão instalados por padrão no seu SO
+# no caso, você sabe 'o que quer' mas não sabe exatamente o nome, use 
+sudo apt-cache search 'nome-serviço' (sem aspas)
+
+# Após escolher o seu serviço na lista que o search retornou, para instalar, basta
+sudo apt install 'nome-servico'
+
+# Como exemplo, vamos rodar o projeto do Jean na nossa instância
+# Primeiro, precisamos trazer o repositório do projeto dele para nossa sistema
+git clone https://github.com/jeancosta4/flask-pymysql.git
+
+# agora, entrar na pasta do projeto
+cd flask-pymysql
+
+# Para rodar o flask, você precisa
+- Instalar o python -> sudo apt install python3.12
+- Instalar a lib do venv -> sudo apt install python3.12-venv
+- Instalar o venv na sua pasta -> python3 -m venv venv
+- Inicializar o venv -> source venv/bin/activate  
+- Instalar os reqs do flask -> pip install -r requirements.txt
+- Rodar o flask -> flask run --host=0.0.0.0 --debug 
+
+# obs: pode ser que os comandos python requisitem as versões:
+# em vez de python -m ... => python3 -m ...
+# em vez de pip install ... => pip3 install ...
+
+# Pronto, teoricamente o flask já está rodando na sua instância AWS (Caso tenha liberado a porta 5000 no seu Grupo de Segurança)
+
+
